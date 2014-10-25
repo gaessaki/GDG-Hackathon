@@ -1,54 +1,56 @@
 package com.brunstorm.awdronea;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
-import android.widget.TextView;
-import de.yadrone.base.ARDrone;
-import de.yadrone.base.IARDrone;
-import de.yadrone.base.navdata.BatteryListener;
+import android.widget.*;
+import android.view.*;
+import android.content.Intent;
 
 public class CenterActivity extends Activity {
 
     private TextView mTextView;
+    private TextView TextToPrint;
+    private TextView txtView;
+    private Button mybtn;
+    private WatchViewStub stub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_center);
-        final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
+        stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
             }
         });
-        IARDrone drone = null;
-        try
-        {
-            drone = new ARDrone();
-            drone.start();
-        }
-        catch (Exception exc)
-        {
-            exc.printStackTrace();
-        }
-        finally
-        {
-            if (drone != null)
-                drone.stop();
-            System.exit(0);
-        }
-        drone.getNavDataManager().addBatteryListener(new BatteryListener() {
-
-            public void batteryLevelChanged(int percentage)
-            {
-                //System.out.println("Battery: " + percentage + " %");
+    /*
+        mybtn = (Button)findViewById(R.id.UpButton);
+        mybtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                txtView.setText("UP");
             }
-
-            public void voltageChanged(int vbat_raw) { }
         });
-
+    */
 
     }
+
+    public void PrintLaunch(View v){
+        Resources res = getResources();
+        String Print = res.getString(R.string.Launch);
+        TextView txt = (TextView) stub.findViewById(R.id.UpTextView);
+        txt.setText(Print);
+
+    }
+
+    public void PrintLand(View v){
+        Resources res = getResources();
+        String Print = res.getString(R.string.Land);
+        TextView txt = (TextView) stub.findViewById(R.id.UpTextView);
+        txt.setText(Print);
+    }
 }
+

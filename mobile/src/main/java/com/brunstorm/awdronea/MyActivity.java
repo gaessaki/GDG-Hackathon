@@ -3,6 +3,14 @@ package com.brunstorm.awdronea;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.graphics.Bitmap;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,7 +21,16 @@ import android.os.Build;
 
 
 
-public class MyActivity extends Activity {
+public class MyActivity extends Activity implements LocationListener, SensorEventListener {
+
+    private ARDroneAPI drone;
+    private LocationManager mLocationManager;
+    private SensorManager mSensorManager;
+    private Location mCurrentLocation;
+    private Location mTargetLocation;
+    private boolean mStarted = false;
+    private double mOrientation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +42,6 @@ public class MyActivity extends Activity {
                     .commit();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,6 +61,37 @@ public class MyActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
 
     /**
      * A placeholder fragment containing a simple view.

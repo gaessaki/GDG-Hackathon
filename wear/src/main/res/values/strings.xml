@@ -4,5 +4,8 @@
     <string name="app_name">AWDroneA</string>
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
+    <string name="Launch">Launch</string>
+    <string name="Land">Land</string>
 
 </resources>
+

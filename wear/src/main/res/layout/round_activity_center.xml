@@ -4,13 +4,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CenterActivity"
-    tools:deviceIds="wear_round">
+    tools:deviceIds="wear_round"
+    android:id="@+id/MyRelativeLayout"
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/text"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:text="Launch"
+        android:id="@+id/UpButton"
+        android:onClick="PrintLaunch"
+        android:background="@color/blue"
         android:layout_centerVertical="true"
-        android:text="@string/hello_round" />
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/UpTextView"
+        android:background="@color/white"
+        android:layout_toStartOf="@+id/UpButton"
+        android:text="Start Drone"
+        android:textColor="@color/blue"
+        android:layout_above="@+id/UpButton"
+        android:layout_alignStart="@+id/UpButton"
+        android:layout_marginBottom="24dp"
+        android:layout_alignEnd="@+id/UpButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Land"
+        android:id="@+id/button"
+        android:background="@color/blue"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:onClick="PrintLand"/>
+
 </RelativeLayout>
+
